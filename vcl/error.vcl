@@ -4,3 +4,11 @@ if (obj.status == 901) {
     set obj.http.Location = "https://" req.http.host req.url;
     return (deliver);
 }
+
+if (obj.status == 902) {
+    set obj.status = 302;
+    set obj.response = "REDIRECT";
+    set obj.http.Location = "https://" req.http.host "/gateway";
+    return (deliver);
+}
+

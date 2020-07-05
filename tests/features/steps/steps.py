@@ -3,13 +3,15 @@ import requests
 
 @given(u'I am a {useragent}')
 def step_impl(context,useragent):
-    if "bot" not in useragent:
+    if "bot" in useragent:
+        context.useragent = useragent 
+    else:
         context.useragent = "pybehave"
 
 @given(u'I visit {url}')
 def step_impl(context,url):
     headers = {'User-Agent': context.useragent}
-    context.resp = requests.get(url, headers=headers, allow_redirects=False )
+    context.resp = requests.get(url, headers=headers, allow_redirects=False, verify=False )
     print("response_headers :"+str(context.resp.headers))
 
 @then(u'Response is redirect')

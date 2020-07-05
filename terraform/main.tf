@@ -44,3 +44,18 @@ resource "fastly_service_dictionary_items_v1" "block" {
         blockpath2: "block"
     }
 }
+
+output "service_name" {
+    value = fastly_service_v1.test.name
+}
+output "service_id" {
+    value = fastly_service_v1.test.id
+}
+
+output "service_active_version" {
+    value = fastly_service_v1.test.active_version
+}
+
+output "block_dictionary_id" {
+    value = {for s in fastly_service_v1.test.dictionary : s.name => s.dictionary_id}["block"]
+}
