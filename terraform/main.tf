@@ -40,8 +40,8 @@ resource "fastly_service_dictionary_items_v1" "block" {
   service_id    = fastly_service_v1.test.id
   dictionary_id = {for s in fastly_service_v1.test.dictionary : s.name => s.dictionary_id}["block"]
     items = {
-        blockpath1: "block"
-        blockpath2: "block"
+        "/block-path1": "block"
+        "/block-path2": "block"
     }
 }
 

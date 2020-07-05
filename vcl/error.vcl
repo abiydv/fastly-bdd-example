@@ -12,3 +12,9 @@ if (obj.status == 902) {
     return (deliver);
 }
 
+if (obj.status == 903) {
+    set obj.status = 403;
+    set obj.response = "BLOCKED";
+    synthetic {""};
+    return (deliver);
+}
