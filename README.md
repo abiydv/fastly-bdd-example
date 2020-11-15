@@ -1,18 +1,18 @@
-# **Fastly BDD Tests Examples**
+# Fastly BDD Tests
 
-Fastly offers a huge opportunity of customizing user journeys using the VCL conditionals/flows. These rules are executed on edge, closer to end-users, and save the origin from handling these trivial cases. As the no of. rules increase though, there is a possibility of things breaking. Implementing BDD tests ensures there are no surprises when implementing new rules.
+Fastly offers a huge opportunity of customizing user journeys using the VCL conditionals/flows. More details here - https://abiydv.github.io/posts/fastly-bdd/
 
-The different sections in the repo are as follows - 
-* [terraform](terraform) - Terraform config to create a sample Fastly service
-* [vcl](vcl) - The VCL snippets that are deployed to the service
-* [tests](tests) - Contains the feature files and tests implementation
+## What is where?
+* [terraform](terraform) - Terraform configs to create a sample Fastly service
+* [vcl](vcl) - The VCL snippets
+* [tests](tests) - Feature files and tests implementation
 
-## **REQUIRMENTS**
+## Pre-requisites
 
 * Sign-up for a *limited* free Fastly account
 * Terraform 12 or above
 
-## **DEPLOY FASTLY SERVICE**
+## Deploy Fastly service and VCLs
 
 1. Export `FASTLY_API_KEY`
    ```
@@ -32,7 +32,7 @@ The different sections in the repo are as follows -
    $ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
    ````
 
-## **RUN TESTS**
+## Run Tests
 
 1. Switch to `tests` directory and create a virtual py environment
    ```
@@ -57,7 +57,7 @@ The different sections in the repo are as follows -
    Took 0m0.051s
    ````
 
-## **CLEANUP**
+## Cleanup
 
 1. Export `FASTLY_API_KEY`
    ```
@@ -76,10 +76,8 @@ The different sections in the repo are as follows -
 
    $ Apply complete! Resources: 0 added, 0 changed, 3 destroyed.
    ````
-## **NOTE** ##
-To make full use of these tests, they can be run in a CI-CD pipeline after each Fastly deployment to do a quick check. Any issues identified can then be quickly addressed, before the production deployment.
 
-## **NOTE** ##
+## Note
 This is a test/proof-of-concept. There are some configs to make it quick, which should be removed before actual implementation.
 
 1. `verify=False` flag in `requests.get()` call. File [steps.py](tests/features/steps/steps.py).  
