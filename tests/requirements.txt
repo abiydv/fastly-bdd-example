@@ -1,7 +1,7 @@
 behave==1.2.6
 certifi==2023.7.22
 chardet==3.0.4
-idna==2.10
+idna==3.7
 parse==1.15.0
 parse-type==0.5.2
 pkg-resources==0.0.0
