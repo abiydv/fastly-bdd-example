@@ -1,5 +1,5 @@
 behave==1.2.6
-certifi==2023.7.22
+certifi==2024.7.4
 chardet==3.0.4
 idna==3.7
 parse==1.15.0
